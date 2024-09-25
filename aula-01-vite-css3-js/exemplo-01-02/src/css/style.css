@@ -25,7 +25,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+ flex-flow: column;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -35,7 +35,7 @@ h1 {
   line-height: 1.1;
 }
 
-#app {
+header {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -57,13 +57,6 @@ h1 {
 
 .card {
   padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -73,12 +66,25 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  list-style: none;
+  text-align: center;
 }
-button:hover {
+
+ul{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+  /* grid-row: unset; */
+  grid-column-gap: 2rem;
+  grid-row-gap: 10px;
+  padding: 10px;
+}
+
+li:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
+
+li:focus,
+li:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
@@ -90,7 +96,24 @@ button:focus-visible {
   a:hover {
     color: #ff74ae;
   }
-  button {
+  .card {
     background-color: #f9f9f9;
+    /* background-color: #8c1313; */
+  }
+}
+
+@media(max-width:640px) {
+  h1 {
+    font-size: 2.5em;
+  }
+}
+
+@media (min-width:640px){
+  ul{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  li:nth-child(1){
+    grid-column-start: 2;
   }
 }
